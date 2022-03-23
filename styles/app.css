@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    font-size: 1.1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: rgb(248, 248, 248);
+}
+h1 {
+    font-weight: 900;
+    font-size: 2.3rem;
+    margin-bottom: 1.8rem;
+}
+h2 {
+    font-size: 1rem;
+}
+p{
+    font-size: 0.9rem;
+}
+nav {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+nav a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-left: 1rem;
+    color: black;
+    font-weight: 400;
+}
+.blue-button {
+    width: 300px;
+    height: 39px;
+    border-radius: 0.9rem;
+    background-color: rgb(74, 181, 252);
+    border: none;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.white-button {
+    width: 300px;
+    height: 39px;
+    border-radius: 0.9rem;
+    background-color: transparent;
+    border: 1.5px solid rgb(218, 218, 218);
+    font-weight: 700;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form span {
+    margin-top: -1.4rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    max-width: 300px;
+    color: rgb(163, 163, 163);
+}
+.join-wrapper{
+    height: 60vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.join-wrapper h2{
+    margin-bottom: 0.5rem;
+}
+.join-wrapper .blue-button {
+    margin-bottom: 2rem;
+}
+.signup-wrapper, .login-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.signup-form, .login-form {
+    display: flex;
+    flex-direction: column;
+}
+.signup-form input, .login-form input{
+    width: 70vw;
+    height: 40px;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    background-color: transparent;
+    border: 1.5px solid rgb(218, 218, 218);
+    margin-bottom: 1.5rem;
+}
+.signup-form input:focus, .login-form input:focus, .post_tweet-wrapper input:focus, .edit_tweet_container input:focus {
+    outline: none !important;
+    border-color: rgb(74, 181, 252);
+}
+
+.signup-form button, .login-form button {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.signup-form label, .login-form label, .post_tweet-wrapper label, .edit_tweet label {
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-bottom: 0.3rem;
+    color: rgb(74, 181, 252);
+}
+
+.signup-form-container, .login-form-container{
+    background: rgb(248, 248, 248);
+    padding: 2rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.signup-form input::placeholder, .login-form input::placeholder{
+    color: rgb(199, 199, 199);
+}
+
+.signup-form-container .close, .login-form-container .close{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+@media screen and (min-width: 600px) {
+    .signup-form-container, .login-form-container {
+        padding: 5rem;
+    }
+    .signup-form input, .login-form input{
+        max-width: 300px;
+    }
+}
+.icon-wrap{
+    display: flex;
+    align-items: center;
+}
+.icon-wrap span{
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.person-icon {
+    height: 45px;
+    width: 45px;
+    background-color: white;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 5rem;
+    padding: 0.6rem;
+    margin: 1rem;
+}
+.post_tweet-wrapper, .tweets_container, .fp_tweets_container{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    flex-direction: column;
+}
+.post_tweet-wrapper form, .tweets_container form, .edit_tweet_container form, .fp_tweets_container .tweet{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: white;
+    border: 1.5px solid rgb(218, 218, 218);
+}
+@media screen and (min-width: 700px) {
+    .post_tweet-wrapper form, .tweets_container form, .edit_tweet_container form, .fp_tweets_container .tweet{
+        width: 600px;
+    }
+}
+.post_tweet-wrapper form input, .edit_tweet_container form input{
+    width: 100%;
+    height: 40px;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    background-color: transparent;
+    border: 1.5px solid rgb(218, 218, 218);
+    margin-bottom: 1.5rem;
+}
+.post_tweet-wrapper .blue-button, .edit_tweet .blue-button{
+    align-self: flex-end;
+    width: 180px;
+    height: 30px;
+    border-radius: 0.7rem;
+}
+
+.tweets_container .white-button{
+    width: 180px;
+    height: 30px;
+    border-radius: 0.7rem;
+}
+
+.tweet_image {
+    margin-bottom: 1rem;
+}
+
+.tweets_container p, .fp_tweets_container > .tweet > p {
+    padding: 1rem 0;
+    border-bottom: 1.5px solid rgb(218, 218, 218);
+    margin-bottom: 1.5rem;
+}
+.tweets_container span, .fp_tweets_container span{
+    align-self: flex-end;
+    font-size: 0.8rem;
+    margin-top: 0;
+}
+.fp_tweets_container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.button-wrapper{
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    flex-direction: column;
+}
+@media screen and (min-width: 600px) {
+    .button-wrapper{
+        flex-direction: row;
+    }
+}
+.edit-tweet-button{
+    margin-right: 0.5rem;
+}
+.edit_tweet_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: 0.3s;
+    opacity: 1;
+}
+.edit_tweet form{
+    display: flex;
+    flex-direction: column;
+}
+.cancel-edit {
+    margin-right: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    cursor: pointer;
+    align-self: center !important;
+}
+.tweet{
+margin-bottom: 1rem;
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    display: none;
+}
+.no-tweets-message{
+    align-self: center !important;
+}
+
+
+footer {
+    height: 20px;
+    background-color: rgb(74, 181, 252);
+}

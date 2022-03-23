@@ -1,0 +1,64 @@
+% include("header", title="Control panel")
+
+    <main>
+        <div class="post_tweet-wrapper">
+            <form enctype="multipart/form-data" onsubmit="return false">
+                <label>What's on your mind?</label>
+                <input class="tweet_text" name="tweet_text" type="text">
+                <label>Upload a picture</label>
+                <input type="file" id="tweet_image" name="tweet_image">
+                <button class="blue-button" onclick="tweet()">Post tweet</button>
+            </form>
+        </div>
+        <div class="tweets_container">
+            % if tweets == []:
+            <span class="no-tweets-message">sorry, no tweets to show</span>
+            % end 
+            % for tweet in tweets:
+            <div>
+                <form class="tweet-{{tweet['tweet_id']}}" onsubmit="return false">
+                    <input name="tweet_id" type="hidden" value="{{tweet['tweet_id']}}">
+                    <span>{{tweet["tweet_created_at"]}}</span>
+                    % if tweet["tweet_updated_at"]:
+                    <span class="tweet_updated_at">Last edited: {{tweet["tweet_updated_at"]}}</span>
+                    % end 
+                    % if not tweet["tweet_updated_at"]:
+                    <span class="tweet_updated_at hide">Last edited: {{tweet["tweet_updated_at"]}}</span>
+                    % end 
+                    <p class="tweet_text">{{tweet["tweet_text"]}}</p>
+                    % if tweet["tweet_image_path"] and tweet["tweet_image_path"] != "null" and tweet["tweet_image_path"] != "None":
+                    <img class="tweet_image" src="../images/{{tweet['tweet_image_path']}}" alt="Tweet image">
+                    % end
+                    <div class="button-wrapper">
+                        <button onclick="openEditTweet(event)" class="edit-tweet-button white-button" type="button">Edit</button>
+                        <button class="white-button" onclick="deleteTweet(event)">Delete tweet</button>
+                    </div>
+                </form>
+
+            <div class="edit_tweet_container hide">
+                <div class="edit_tweet">
+                    <form onsubmit="return false">
+                        <input name="tweet_id" type="hidden" value="{{tweet['tweet_id']}}">
+                        <label>Tweet text</label>
+                        <input name="tweet_text" type="text" value="{{tweet['tweet_text']}}">
+                        % if not tweet["tweet_image_path"]:
+                        <label>Upload a picture</label>
+                        % end
+                        % if tweet["tweet_image_path"]:
+                        <label>Change picture</label>
+                        % end
+                        <input name="tweet_image_path" type="hidden" value="{{tweet['tweet_image_path']}}">
+                        <input type="file" id="tweet_image" name="tweet_image">
+                        <div class="button-wrapper">
+                            <span onclick="closeEditTweet(event)" class="cancel-edit">Cancel</span>
+                            <button class="blue-button" onclick="updateTweet(event)">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+            % end 
+        </div>
+    </main>
+
+% include("footer")

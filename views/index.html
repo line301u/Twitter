@@ -1,0 +1,37 @@
+% include("header", title="Welcome")
+
+    <main>
+        <div class="join-wrapper">
+            <div>
+                <h1>Join twitter today</h1>
+                <a href="./signup"><button class="blue-button">Sign up</button></a>
+                
+                <h2>Already have an accout?</h2>
+                <a href="./login"><button class="white-button">Login</button></a>
+            </div>
+        </div>
+
+        <div class="fp_tweets_container">
+            <h2>What's new?</h2>
+            % if tweets == []:
+            <span class="no-tweets-message">sorry, no tweets to show</span>
+            % end 
+            % for tweet in tweets:
+            <div class="tweet">
+                <span>{{tweet["tweet_created_at"]}}</span>
+                % if tweet["tweet_updated_at"]:
+                <span class="tweet_updated_at">Last edited: {{tweet["tweet_updated_at"]}}</span>
+                % end 
+                % if not tweet["tweet_updated_at"]:
+                <span class="tweet_updated_at hide">Last edited: {{tweet["tweet_updated_at"]}}</span>
+                % end 
+                <p class="tweet_text">{{tweet["tweet_text"]}}</p>
+                % if tweet["tweet_image_path"] and tweet["tweet_image_path"] != "null":
+                <img class="tweet_image" src="../images/{{tweet['tweet_image_path']}}" alt="Tweet image">
+                % end
+            </div>
+            % end 
+        </div>
+    </main>
+
+% include("footer")
