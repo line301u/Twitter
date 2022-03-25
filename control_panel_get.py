@@ -37,13 +37,13 @@ def _():
 
             # GET ALL TWEETS BY USER ID
             user_id = request.get_cookie("user_id", secret=g.COOKIE_SECRET)
-            cursor.execute("""SELECT *, FROM_UNIXTIME(tweet_created_at, '%h:%i %p, %d-%m-%Y') as tweet_created_at, FROM_UNIXTIME(tweet_updated_at, '%h:%i %p, %d-%m-%Y') as tweet_updated_at
+            cursor.execute("""SELECT *, FROM_UNIXTIME(tweet_created_at, '%h:%i %p, %d-%m-%Y') as tweet_created_at_formatted, FROM_UNIXTIME(tweet_updated_at, '%h:%i %p, %d-%m-%Y') as tweet_updated_at
             FROM tweets
             WHERE tweet_user_id = %s
             ORDER BY tweet_created_at DESC""", (user_id, ))
             tweets = cursor.fetchall()
             
-        print(tweets)
+        print(3*"#")
         return dict(tweets=tweets)
     
     except Exception as ex:

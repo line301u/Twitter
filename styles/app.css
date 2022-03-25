@@ -237,6 +237,10 @@ form span {
         flex-direction: row;
     }
 }
+.tweet_image_tag{
+    max-height: 50vh;
+    object-fit: cover;
+}
 .edit-tweet-button{
     margin-right: 0.5rem;
 }
@@ -265,6 +269,10 @@ form span {
     cursor: pointer;
     align-self: center !important;
 }
+.tweet_image_tag{
+    margin-bottom: 1rem;
+}
+
 .tweet{
 margin-bottom: 1rem;
 }
